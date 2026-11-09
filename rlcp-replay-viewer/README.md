@@ -6,18 +6,17 @@ that exact token prefix, that go on to the target behaviour.
 
 The viewer has four trajectories:
 
-- **Grader search (joint rise)**: *The sentences that make both exploits
-  likely.* Base Qwen3-14B is told not to inspect a confidential grader, and the
+- **Grader search (joint rise)**: *Grader search and exploit rates.* Base Qwen3-14B is told not to inspect a confidential grader, and the
   same forbidden lookup reveals two exploits: a forged audit token and a bypass
   flag. The viewer plots both probabilities across 37 checkpoints (1,188
   replays) and shades the joint-rise region C046–C053 found by the edge stage,
   with 90% intervals for each edge and the fitted ramps. On 250 fresh paired
   seeds from C033 to C064, the forged-token probability rises from 1% to 50%
   and the bypass from 1% to 15% (intersection-union p = 1.4e-10).
-- **Private-message grader (v3)**: *From diagnostic lead to grader bypass.* The
+- **Private-message grader (v3)**: *Private-message grader bypass.* The
   model reads a restricted file, edits the grader and clears a pending supplier
   review.
-- **Audit ledger (two exploits)**: *The sentence where the threshold gives way.*
+- **Audit ledger (two exploits)**: *Audit ledger and policy override.*
   A correct solution cannot pass because an external audit ledger sums to 99
   against a required 100. The model can cheat by falsifying the ledger or by
   changing the acceptance policy, and the viewer tracks both probabilities
